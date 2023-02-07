@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 #include <string>
 using namespace std;
 
@@ -26,7 +27,11 @@ int main(int argCount, char* args[]){
   int ratingTwo = 5;
   int ratingThree = 5;
 
-  /* This section of code is a static reference to three books, written to the    console.*/
+  int quantityOne;
+  int quantityTwo;
+  int quantityThree;
+
+  //Output Book(s) values
   cout << "BOOKSTORE \n" << endl;
 
   //Book One
@@ -49,6 +54,30 @@ int main(int argCount, char* args[]){
   cout << "ISBN: " << isbnThree << endl;
   cout << "Price: $" << priceThree << endl;
   cout << "Rating: "<< ratingThree << "\n" << endl;
+
+  //Get quantity inputs
+  cout << "Please enter the quantity of " << titleOne << " by " 
+       << authorOne << " you would like to purchase: ";
+  cin >> quantityOne;
+  cout << "Please enter the quantity of " << titleTwo << " by " 
+       << authorTwo << " you would like to purchase: ";
+  cin >> quantityTwo;
+  cout << "Please enter the quantity of " << titleThree << " by " 
+       << authorThree << " you would like to purchase: ";
+  cin >> quantityThree;
+
+  cout << fixed << setprecision(2);
+
+  //Display receipt
+  float totalPrice = (quantityOne * priceOne) + (quantityTwo * priceTwo) + (quantityThree * priceThree);
+  
+  cout << "\nRECEIPT" << endl;
+  cout << string(50, '-') << endl;
+  cout << titleOne << " by " << authorOne << ": $" << quantityOne * priceOne << endl;
+  cout << titleTwo << " by " << authorTwo << ": $" << quantityTwo * priceTwo << endl;
+  cout << titleThree << " by " << authorThree << ": $" << quantityThree * priceThree << endl;
+  cout << string(20, '-') << endl;
+  cout << "Total: $" << totalPrice << endl;
 
   return 0;
 }
