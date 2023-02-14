@@ -1,6 +1,7 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
+#include "Book.h"
 using namespace std;
 
 int main(int argCount, char* args[]){
@@ -59,12 +60,32 @@ int main(int argCount, char* args[]){
   cout << "Please enter the quantity of " << titleOne << " by " 
        << authorOne << " you would like to purchase: ";
   cin >> quantityOne;
+  
+  //Check
+  if(quantityOne < 0) {
+    cout << "ERROR: Quantity cannot be less than 0. Defaulting to 0";
+    quantityOne = 0;
+    }
+  
   cout << "Please enter the quantity of " << titleTwo << " by " 
        << authorTwo << " you would like to purchase: ";
   cin >> quantityTwo;
+
+  //Check
+  if(quantityTwo < 0) {
+    cout << "ERROR: Quantity cannot be less than 0. Defaulting to 0";
+    quantityTwo = 0;
+    }
+  
   cout << "Please enter the quantity of " << titleThree << " by " 
        << authorThree << " you would like to purchase: ";
   cin >> quantityThree;
+
+  //Check
+  if(quantityThree < 0) {
+    cout << "ERROR: Quantity cannot be less than 0. Defaulting to 0";
+    quantityThree = 0;
+    }
 
   cout << fixed << setprecision(2);
 

@@ -12,6 +12,7 @@ int main(){
   string zipcode;
 
   //input/output
+  cout << "Hello, and welcome to Justin's Parcel Services Worldwide!\n\n";
   cout << "Please enter the name of the recipient: ";
   getline ( cin, name );
   cout << "Please enter the destination ZipCode: ";
