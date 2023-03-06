@@ -6,97 +6,93 @@ using namespace std;
 
 int main(int argCount, char* args[]){
 
-  // Initialize variables for three books and their values
+  // Initialize objects for three books and their values
+  Book bookOne;
+  bookOne.title = "The Enchiridion";
+  bookOne.author = "Epictetus";
+  bookOne.ISBN = "9781521560341";
+  bookOne.price = 19.99;
+  bookOne.rating = 5;
 
-  string titleOne = "The Enchiridion";
-  string titleTwo = "The Illiad";
-  string titleThree = "The Gay Science";
+  Book bookTwo;
+  bookTwo.title = "The Illiad";
+  bookTwo.author = "Homer";
+  bookTwo.ISBN = "9780140275360";
+  bookTwo.price = 29.99;
+  bookTwo.rating = 5;
 
-  string authorOne = "Epictetus";
-  string authorTwo = "Homer";
-  string authorThree = "Friedrich Nietzsche";
-
-  string isbnOne = "9781521560341";
-  string isbnTwo = "9780140275360";
-  string isbnThree = "9798669217730";
-
-  float priceOne = 19.99;
-  float priceTwo = 29.99;
-  float priceThree = 15.99;
-
-  int ratingOne = 5;
-  int ratingTwo = 5;
-  int ratingThree = 5;
-
-  int quantityOne;
-  int quantityTwo;
-  int quantityThree;
+  Book bookThree;
+  bookThree.title = "The Gay Science";
+  bookThree.author = "Friedrich Nietzsche";
+  bookThree.ISBN = "9798669217730";
+  bookThree.price = 15.99;
+  bookThree.rating = 5;
 
   //Output Book(s) values
   cout << "BOOKSTORE \n" << endl;
 
   //Book One
-  cout << "Title: " << titleOne<< endl;
-  cout << "Author: " << authorOne << endl;
-  cout << "ISBN: " << isbnOne  << endl;
-  cout << "Price: $" << priceOne << endl;
-  cout << "Rating: "<< ratingOne << "\n" << endl;
+  cout << "Title: " << bookOne.title<< endl;
+  cout << "Author: " << bookOne.author << endl;
+  cout << "ISBN: " << bookOne.ISBN  << endl;
+  cout << "Price: $" << bookOne.price << endl;
+  cout << "Rating: "<< bookOne.rating << "\n" << endl;
 
   // Book two
-  cout << "Title: " << titleTwo << endl;
-  cout << "Author: " << authorTwo << endl;
-  cout << "ISBN: " << isbnTwo << endl;
-  cout << "Price: $" << priceTwo << endl;
-  cout << "Rating: "<< ratingTwo << "\n" << endl;
+  cout << "Title: " << bookTwo.title << endl;
+  cout << "Author: " << bookTwo.author << endl;
+  cout << "ISBN: " << bookTwo.ISBN << endl;
+  cout << "Price: $" << bookTwo.price << endl;
+  cout << "Rating: " << bookTwo.rating << "\n" << endl;
 
   //Book Three
-  cout << "Title: " << titleThree << endl;
-  cout << "Author: " << authorThree << endl;
-  cout << "ISBN: " << isbnThree << endl;
-  cout << "Price: $" << priceThree << endl;
-  cout << "Rating: "<< ratingThree << "\n" << endl;
+  cout << "Title: " << bookThree.title << endl;
+  cout << "Author: " << bookThree.author << endl;
+  cout << "ISBN: " << bookThree.ISBN << endl;
+  cout << "Price: $" << bookThree.price << endl;
+  cout << "Rating: "<< bookThree.rating << "\n" << endl;
 
   //Get quantity inputs
-  cout << "Please enter the quantity of " << titleOne << " by " 
-       << authorOne << " you would like to purchase: ";
-  cin >> quantityOne;
+  cout << "Please enter the quantity of " << bookOne.title << " by " 
+       << bookOne.author << " you would like to purchase: ";
+  cin >> bookOne.quantity;
   
   //Check
-  if(quantityOne < 0) {
+  if(bookOne.quantity < 0) {
     cout << "ERROR: Quantity cannot be less than 0. Defaulting to 0";
-    quantityOne = 0;
+    bookOne.quantity = 0;
     }
   
-  cout << "Please enter the quantity of " << titleTwo << " by " 
-       << authorTwo << " you would like to purchase: ";
-  cin >> quantityTwo;
+  cout << "Please enter the quantity of " << bookTwo.title << " by " 
+       << bookTwo.author << " you would like to purchase: ";
+  cin >> bookTwo.quantity;
 
   //Check
-  if(quantityTwo < 0) {
+  if(bookTwo.quantity < 0) {
     cout << "ERROR: Quantity cannot be less than 0. Defaulting to 0";
-    quantityTwo = 0;
+    bookTwo.quantity = 0;
     }
   
-  cout << "Please enter the quantity of " << titleThree << " by " 
-       << authorThree << " you would like to purchase: ";
-  cin >> quantityThree;
+  cout << "Please enter the quantity of " << bookThree.title << " by " 
+       << bookThree.author << " you would like to purchase: ";
+  cin >> bookThree.quantity;
 
   //Check
-  if(quantityThree < 0) {
+  if(bookThree.quantity < 0) {
     cout << "ERROR: Quantity cannot be less than 0. Defaulting to 0";
-    quantityThree = 0;
+    bookThree.quantity = 0;
     }
 
   cout << fixed << setprecision(2);
 
   //Display receipt
-  float totalPrice = (quantityOne * priceOne) + (quantityTwo * priceTwo) + (quantityThree * priceThree);
+  float totalPrice = (bookOne.quantity * bookOne.price) + (bookTwo.quantity * bookTwo.price) + (bookThree.quantity * bookThree.price);
   
   cout << "\nRECEIPT" << endl;
   cout << string(50, '-') << endl;
-  cout << titleOne << " by " << authorOne << ": $" << quantityOne * priceOne << endl;
-  cout << titleTwo << " by " << authorTwo << ": $" << quantityTwo * priceTwo << endl;
-  cout << titleThree << " by " << authorThree << ": $" << quantityThree * priceThree << endl;
+  cout << bookOne.title << " by " << bookOne.author << ": $" << bookOne.quantity * bookOne.price << endl;
+  cout << bookTwo.title << " by " << bookTwo.author << ": $" << bookTwo.quantity * bookTwo.price << endl;
+  cout << bookThree.title << " by " << bookThree.author << ": $" << bookThree.quantity * bookThree.price << endl;
   cout << string(20, '-') << endl;
   cout << "Total: $" << totalPrice << endl;
 

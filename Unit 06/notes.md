@@ -32,7 +32,7 @@ An object is a particular instance of a class or struct that had its own unique 
 
 What does the dot operator do?
 
-The dot oiperator accesses a submethod of the object, calling upon built in methods or variables.
+The dot oiperator accesses a submethod of the object, calling upon built in methods or variables native to that object.
 
 What is a member variable?
 
