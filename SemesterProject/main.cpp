@@ -1,12 +1,17 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
+#include <fstream>
+
 #include "Book.h"
+#include "Functions.h"
 using namespace std;
 
 int main(int argCount, char* args[]){
 
   // Initialize objects for three books and their values
+
+  /* Code before IO Chp 7*/
   Book bookOne;
   bookOne.title = "The Enchiridion";
   bookOne.author = "Epictetus";
@@ -27,30 +32,8 @@ int main(int argCount, char* args[]){
   bookThree.ISBN = "9798669217730";
   bookThree.price = 15.99;
   bookThree.rating = 5;
-
-  //Output Book(s) values
-  cout << "BOOKSTORE \n" << endl;
-
-  //Book One
-  cout << "Title: " << bookOne.title<< endl;
-  cout << "Author: " << bookOne.author << endl;
-  cout << "ISBN: " << bookOne.ISBN  << endl;
-  cout << "Price: $" << bookOne.price << endl;
-  cout << "Rating: "<< bookOne.rating << "\n" << endl;
-
-  // Book two
-  cout << "Title: " << bookTwo.title << endl;
-  cout << "Author: " << bookTwo.author << endl;
-  cout << "ISBN: " << bookTwo.ISBN << endl;
-  cout << "Price: $" << bookTwo.price << endl;
-  cout << "Rating: " << bookTwo.rating << "\n" << endl;
-
-  //Book Three
-  cout << "Title: " << bookThree.title << endl;
-  cout << "Author: " << bookThree.author << endl;
-  cout << "ISBN: " << bookThree.ISBN << endl;
-  cout << "Price: $" << bookThree.price << endl;
-  cout << "Rating: "<< bookThree.rating << "\n" << endl;
+  
+  DisplayBook(bookOne, bookTwo, bookThree);
 
   //Get quantity inputs
   cout << "Please enter the quantity of " << bookOne.title << " by " 
@@ -86,15 +69,8 @@ int main(int argCount, char* args[]){
   cout << fixed << setprecision(2);
 
   //Display receipt
-  float totalPrice = (bookOne.quantity * bookOne.price) + (bookTwo.quantity * bookTwo.price) + (bookThree.quantity * bookThree.price);
-  
-  cout << "\nRECEIPT" << endl;
-  cout << string(50, '-') << endl;
-  cout << bookOne.title << " by " << bookOne.author << ": $" << bookOne.quantity * bookOne.price << endl;
-  cout << bookTwo.title << " by " << bookTwo.author << ": $" << bookTwo.quantity * bookTwo.price << endl;
-  cout << bookThree.title << " by " << bookThree.author << ": $" << bookThree.quantity * bookThree.price << endl;
-  cout << string(20, '-') << endl;
-  cout << "Total: $" << totalPrice << endl;
+  float totalPrice = CalculatePrice(bookOne, bookTwo, bookThree);
+  DisplayReceipt(bookOne, bookTwo, bookThree, totalPrice);
 
   return 0;
 }
