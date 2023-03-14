@@ -11,7 +11,7 @@ int main(int argCount, char* args[]){
 
   // Initialize objects for three books and their values
 
-  /* Code before IO Chp 7*/
+  /* Code before IO Chp 7*/ 
   Book bookOne;
   bookOne.title = "The Enchiridion";
   bookOne.author = "Epictetus";
